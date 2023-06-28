@@ -39,3 +39,12 @@ Cypress.Commands.add('login', (usuario, senha) => {
     cy.get('#account_last_name').type(sobrenome)
     cy.get('.woocommerce-Button').click()
  })
+
+ Cypress.Commands.add('addProdutos', (tamanho,cor) => {
+   cy.get('#primary-menu > .menu-item-629 > a').click()
+   cy.get('.product-block').first().click()
+   cy.get('.button-variable-item-'+tamanho).click()
+   cy.get('.button-variable-item-'+cor).click()
+   cy.get('.single_add_to_cart_button').click()
+   cy.get('.woocommerce-message').should('contain', 'foi adicionado no seu carrinho')
+ })

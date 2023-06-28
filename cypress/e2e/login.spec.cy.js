@@ -25,7 +25,7 @@ context('Funcionalidade login', () => {
         cy.get('.woocommerce-error > li').should('contain', 'Erro: a senha fornecida para o e-mail aluno_ebac@teste.com está incorreta. Perdeu a senha?')
     })
 
-    it.only('Deve fazer login com sucesso - utilizando arquivo de dados', () => {
+    it('Deve fazer login com sucesso - utilizando arquivo de dados', () => {
         cy.get('#username').type(perfil.usuario)
         cy.get('#password').type(perfil.senha, {log: false})
         cy.get('.woocommerce-form > .button').click()
